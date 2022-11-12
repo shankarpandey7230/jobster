@@ -19,7 +19,7 @@ const initialState={
 
 function Register(){
     const [values, setValues] = useState(initialState);
-   const {user, isLoading} =  useSelector (store=> store.user);
+   const {isLoading, user} =  useSelector (store=> store.user);
    const dispatch = useDispatch();
 
     const handleChange =(e)=>{
@@ -60,11 +60,19 @@ function Register(){
                 {!values.isMember && (
                 <FormRow type ='text' name='name' value={values.name} handleChange={handleChange} />)}
                 {/*email */}
-                <FormRow type ='email' name='email' value={values.email} handleChange={handleChange} />
+                <FormRow 
+                type ='email'
+                name='email' 
+                value={values.email} 
+                handleChange={handleChange} />
                 {/*password field*/}
-                <FormRow type ='password' name='password' value={values.password} handleChange={handleChange} />
-                <button type ='submit' className='btn btn-block' disabled={isLoading} >
-                    Submit
+                <FormRow 
+                type ='password' name='password' value={values.password} handleChange={handleChange} />
+                <button type ='submit' className='btn btn-block'  >
+                    {
+                    isLoading? 'loading...':'submit'
+                }
+                    
                 </button>
                 <p>{values.isMember? 'Not a member yet?':'Already a member?'}
                     <button type ='button' onClick={toggleMember} className='member-btn'>{values.isMember? 'Register':'Login'}</button>
