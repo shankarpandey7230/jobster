@@ -3,6 +3,7 @@ import Wrapper from '../../assets/wrappers/DashboardFormPage';
 import { useSelector, useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
 import { handleChange,clearValues,createJob } from '../../features/job/jobSlice';
+import { useEffect } from 'react';
 
 
 const AddJob =()=>{
@@ -16,8 +17,11 @@ const AddJob =()=>{
         status, 
         statusOptions, 
         isEditing, 
-        editJobId
+        editJobId,
     }= useSelector((store)=>store.job);
+    const {user} = useSelector((store)=> store.user);
+
+
     const dispatch =useDispatch();
 
 
@@ -36,7 +40,15 @@ const AddJob =()=>{
         const  value = e.target.value;
         dispatch (handleChange({name, value}))
 
-    }
+    };
+    useEffect(()=>{
+        dispatch(handleChange({
+            name:'jobLocation',
+            value:user.location,
+
+        }))
+
+    },[])
 
     return(
         <Wrapper>
@@ -61,8 +73,8 @@ const AddJob =()=>{
                 <FormRow 
                 type= "text" 
                 name ="jobLocation" 
-                labelText={jobLocation}
-                value ={jobLocation} 
+                labelText='jobLocation'
+                value = {jobLocation} 
                 handleChange = {handleJobInput}
                 />
                 {/* Job Status */}
