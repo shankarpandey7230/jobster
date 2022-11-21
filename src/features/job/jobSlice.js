@@ -51,7 +51,7 @@ const jobSlice = createSlice({
             state[name]= value;
         },
         clearValues :()=>{
-            return {... initialState, jobLocation:getUserFromLocalStorage()?.location || '',}
+            return {... initialState, jobLocation:getUserFromLocalStorage()?.location||'',}
         },
     },
     extraReducers:{
