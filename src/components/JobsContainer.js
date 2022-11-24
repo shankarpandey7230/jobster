@@ -32,7 +32,7 @@ const JobsContainer =()=>{
             <h5>Jobs info</h5>
             <div className='jobs'>
                 {jobs.map((job)=>{
-                    console.log(job);
+                    
                     return <Job key ={job.id} {...job} />
                     
                 })}
