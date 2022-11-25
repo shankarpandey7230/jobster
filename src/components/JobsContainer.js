@@ -33,7 +33,9 @@ const JobsContainer =()=>{
             <div className='jobs'>
                 {jobs.map((job)=>{
                     
-                    return <Job key ={job.id} {...job} />
+                    return <Job 
+                    key ={job.id} 
+                    {...job} />
                     
                 })}
             </div>
