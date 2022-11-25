@@ -42,11 +42,13 @@ const AddJob =()=>{
 
     };
     useEffect(()=>{
+        if(!isEditing){
         dispatch(handleChange({
             name:'jobLocation',
             value:user.location,
 
         }))
+    }
 
     },[])
 
