@@ -11,7 +11,7 @@ const initialFiltersState = {
 };
 
 const initialState = {
-  isLoading: false,
+  isLoading: true,
   jobs: [],
   totalJobs: 0,
   numOfPages: 1,
@@ -28,9 +28,7 @@ export const getAllJobs = createAsyncThunk(
 
     try {
       const resp = await customFetch.get(url, {
-        headers: {
-          authorization: `Bearer ${thunkAPI.getState().user.user.token}`,
-        },
+       
       });
     
 
