@@ -33,11 +33,13 @@ const JobsContainer =()=>{
             <div className='jobs'>
                 {jobs.map((job)=>{
                     
-                    return <Job 
+                    return( <Job 
                     key ={job.id} 
                     {...job} />
+                       )
                     
                 })}
+
             </div>
         </Wrapper>
     )
