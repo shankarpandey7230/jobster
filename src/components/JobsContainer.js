@@ -7,9 +7,10 @@ import { getAllJobs } from '../features/allJobs/allJobsSlice';
 const JobsContainer =()=>{
     const {jobs, isLoading } = useSelector((store)=>store.allJobs);
     const dispatch= useDispatch();
-    useEffect(()=>{
+  
+    useEffect(() => {
         dispatch(getAllJobs());
-    },[]);
+      }, []);
 
     if(isLoading){
         return (
@@ -33,14 +34,11 @@ const JobsContainer =()=>{
             <div className='jobs'>
                 {jobs.map((job)=>{
                     
-                    return( <Job 
-                    key ={job.id} 
-                    {...job} />
-                       )
-                    
+                    return <Job key = {job.id}{...job}/>
                 })}
-
             </div>
+            
+            
         </Wrapper>
     )
 }
