@@ -3039,7 +3039,7 @@ return (
         })}
       </div>
       {numOfPages > 1 && <PageBtnContainer />}
-    </Wrapper>
+    </Wrapper>)
 ```
 
 #### 85) PageBtnContainer Structure
