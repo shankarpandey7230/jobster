@@ -69,7 +69,7 @@ const allJobsSlice = createSlice({
 
       },
       handleChange:(state,{payload:{name, value}})=>{
-        //state.page =1 later
+        state.page =1;
         state[name] =value;
       
       },
@@ -80,7 +80,7 @@ const allJobsSlice = createSlice({
         state.page =payload;
 
 
-      }
+      },
     },
     extraReducers: {
       [getAllJobs.pending]: (state) => {
